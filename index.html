@@ -6,18 +6,21 @@
     <title>MissAV - Selamat Datang</title>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
+        /* Menggunakan font dengan gaya kode */
         body {
             background-color: #ff69b4; /* Latar belakang pink */
             color: white; /* Warna teks putih */
-            font-family: 'Courier Prime', monospace;
+            font-family: 'Courier Prime', monospace; /* Font ala kode */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0; /* Menghilangkan margin default */
-            position: relative; /* Untuk menempatkan tombol login */
+            margin: 0;
+            position: relative;
         }
+        
+        /* Menu navigasi atas */
         .menu {
             display: flex;
             justify-content: center;
@@ -27,20 +30,28 @@
             padding: 10px 0;
             background-color: rgba(255, 20, 147, 0.7); /* Latar belakang semi-transparan */
         }
+        
+        /* Teks tautan */
         .menu a {
             color: white; /* Warna tautan putih */
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
+            font-family: 'Courier Prime', monospace; /* Gaya font kode */
         }
+        
+        /* Pesan sambutan dengan animasi */
         .welcome-message {
             background: rgba(255, 20, 147, 0.8); /* Latar belakang semi-transparan pink */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             text-align: center;
-            animation: fadeIn 3s ease-in-out infinite alternate; /* Animasi untuk teks selamat datang */
+            animation: fadeIn 3s ease-in-out infinite alternate; /* Animasi fade-in */
+            font-family: 'Courier Prime', monospace;
         }
+        
+        /* Tombol login */
         .menu-login {
             position: absolute;
             top: 20px;
@@ -52,7 +63,10 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
+            font-family: 'Courier Prime', monospace; /* Gaya font kode */
         }
+        
+        /* Animasi fade-in untuk teks */
         @keyframes fadeIn {
             0% { opacity: 0; transform: scale(0.9); }
             100% { opacity: 1; transform: scale(1); }
@@ -61,6 +75,7 @@
 </head>
 <body>
 
+    <!-- Menu navigasi -->
     <div class="menu">
         <a href="#">Home</a>
         <a href="#">About</a>
@@ -70,8 +85,10 @@
         <a href="#">Kontak</a>
     </div>
 
+    <!-- Tombol Login -->
     <button class="menu-login" onclick="showLogin()">Login</button>
 
+    <!-- Pesan sambutan -->
     <div class="welcome-message">
         <h1>Selamat Datang di MissAV</h1>
         <p>Tempat terbaik untuk konten dewasa yang aman dan menyenangkan.</p>
