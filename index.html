@@ -14,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; /* Mengisi seluruh tinggi viewport */
             overflow: hidden; 
             text-align: center;
             position: relative; /* Untuk positioning tombol */
@@ -26,7 +26,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://drive.google.com/uc?id=1dZp-7LK5uS31QioEK-CerogyK3w7WmC_'); /* URL latar belakang untuk desktop */
+            background-image: url('https://drive.google.com/file/d/19jUrdhY58XQsN6qqAyo-dGcpYEyuCsj2/view?usp=drivesdk'); /* URL latar belakang untuk desktop */
             background-size: cover; /* Menutupi seluruh latar belakang */
             background-position: center; /* Pusatkan gambar */
             opacity: 0.8; /* Transparansi latar belakang */
@@ -49,22 +49,45 @@
             color: #00ff00; /* Hijau untuk judul */
         }
 
-        .login-button {
+        .menu-button {
             position: absolute; /* Posisi absolut untuk mengatur letak tombol */
             top: 20px; /* Jarak dari atas */
             right: 20px; /* Jarak dari kanan */
-            padding: 10px 15px;
+            padding: 10px;
             background-color: rgba(255, 105, 180, 0.8); /* Warna pink transparan */
             color: black; /* Warna teks tombol */
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 1.5em; /* Ukuran tombol lebih besar untuk menu */
             cursor: pointer;
             transition: background 0.3s; /* Transisi saat hover */
         }
 
-        .login-button:hover {
+        .menu-button:hover {
             background-color: rgba(255, 20, 147, 0.8); /* Warna pink saat hover */
+        }
+
+        /* Menu dropdown */
+        .menu {
+            display: none; /* Tersembunyi secara default */
+            position: absolute;
+            top: 70px; /* Jarak dari atas tombol */
+            right: 20px; /* Jarak dari kanan */
+            background-color: rgba(0, 0, 0, 0.8); /* Latar belakang menu */
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Bayangan putih */
+            z-index: 2; /* Di atas latar belakang */
+        }
+
+        .menu-item {
+            padding: 10px 15px;
+            color: white; /* Warna teks item menu */
+            text-decoration: none; /* Hapus garis bawah */
+            display: block; /* Buat item menu menjadi blok */
+        }
+
+        .menu-item:hover {
+            background-color: rgba(255, 105, 180, 0.5); /* Warna saat hover */
         }
 
         /* Style untuk tampilan pada perangkat kecil */
@@ -87,8 +110,26 @@
         <p>Platform aman untuk konten dewasa.</p>
     </div>
 
-    <!-- Tombol Login Kecil -->
-    <button class="login-button" onclick="window.location.href='login.html';">Login</button>
+    <!-- Tombol Menu -->
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    
+    <!-- Menu Dropdown -->
+    <div class="menu" id="menu">
+        <a href="login.html" class="menu-item">Login</a>
+        <a href="register.html" class="menu-item">Daftar</a>
+        <a href="about.html" class="menu-item">Tentang Kami</a>
+        <a href="contact.html" class="menu-item">Kontak</a>
+        <a href="services.html" class="menu-item">Layanan</a>
+        <a href="gallery.html" class="menu-item">Galeri</a>
+        <a href="privacy.html" class="menu-item">Kebijakan Privasi</a>
+        <a href="terms.html" class="menu-item">Syarat dan Ketentuan</a>
+    </div>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
