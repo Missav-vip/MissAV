@@ -9,9 +9,7 @@
         body {
             margin: 0;
             font-family: 'Courier Prime', monospace; /* Font terminal */
-            background-image: url('https://drive.google.com/file/d/1dZp-7LK5uS31QioEK-CerogyK3w7WmC_/view?usp=drivesdk'); /* Ganti dengan URL gambar latar belakang desktop */
-            background-size: cover; /* Menutupi seluruh latar belakang */
-            background-position: center; /* Pusatkan gambar */
+            background-color: black; /* Latar belakang hitam */
             color: #ffffff; /* Warna teks putih */
             display: flex;
             justify-content: center;
@@ -21,57 +19,54 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) { /* Untuk mode potret */
-            body {
-                background-image: url('https://drive.google.com/file/d/19jUrdhY58XQsN6qqAyo-dGcpYEyuCsj2/view?usp=drivesdk'); /* Ganti dengan URL gambar latar belakang potret */
-            }
-        }
-
         .container {
-            background: rgba(0, 0, 0, 0.8); /* Latar belakang hitam transparan */
+            background-image: url('https://drive.google.com/uc?id=1dZp-7LK5uS31QioEK-CerogyK3w7WmC_'); /* Ganti dengan URL gambar latar belakang login */
+            background-size: cover; /* Menutupi seluruh latar belakang */
+            background-position: center; /* Pusatkan gambar */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Bayangan putih */
-            max-width: 400px;
+            max-width: 300px; /* Lebar maksimum lebih kecil */
             width: 90%; /* Lebar maksimal */
+            opacity: 0.9; /* Sedikit transparan untuk efek */
         }
 
         h2 {
-            font-size: 2em;
+            font-size: 1.5em; /* Ukuran judul lebih kecil */
             margin-bottom: 15px;
             color: #00ff00; /* Hijau untuk judul */
         }
 
         input {
             width: calc(100% - 20px);
-            padding: 10px;
+            padding: 8px; /* Padding lebih kecil */
             margin: 10px 0;
             border: 2px solid #00ff00; /* Border hijau */
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.1); /* Latar belakang input transparan */
             color: #00ff00; /* Teks input hijau */
-            font-size: 1em;
+            font-size: 0.9em; /* Ukuran teks lebih kecil */
         }
 
         button {
             width: 100%;
-            padding: 10px;
-            background: #00ff00; /* Tombol hijau */
+            padding: 8px; /* Padding lebih kecil */
+            background: rgba(0, 255, 0, 0.8); /* Tombol hijau transparan */
             border: none;
             border-radius: 5px;
             color: #000; /* Teks tombol hitam */
-            font-size: 1em;
+            font-size: 0.9em; /* Ukuran teks lebih kecil */
             cursor: pointer;
             transition: background 0.3s; /* Transisi latar belakang */
         }
 
         button:hover {
-            background: #00cc00; /* Warna saat hover */
+            background: rgba(0, 204, 0, 0.8); /* Warna saat hover */
         }
 
         .toggle-form {
             margin-top: 10px;
-            font-size: 0.9em;
+            font-size: 0.8em; /* Ukuran teks lebih kecil */
         }
 
         a {
