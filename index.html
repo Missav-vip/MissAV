@@ -3,133 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MissAV - Beranda</title>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- Font terminal -->
+    <title>MissAV - Selamat Datang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            font-family: 'Courier Prime', monospace; /* Font terminal */
-            background-color: black; /* Latar belakang hitam */
-            color: #ffffff; /* Warna teks putih */
+            background-color: #ff69b4; /* Latar belakang pink */
+            color: white; /* Warna teks putih */
+            font-family: 'Courier Prime', monospace;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Mengisi seluruh tinggi viewport */
-            overflow: hidden; 
-            text-align: center;
-            position: relative; /* Untuk positioning tombol */
+            height: 100vh;
+            margin: 0; /* Menghilangkan margin default */
+            position: relative; /* Untuk menempatkan tombol login */
         }
-
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://drive.google.com/file/d/19jUrdhY58XQsN6qqAyo-dGcpYEyuCsj2/view?usp=drivesdk'); /* URL latar belakang untuk desktop */
-            background-size: cover; /* Menutupi seluruh latar belakang */
-            background-position: center; /* Pusatkan gambar */
-            opacity: 0.8; /* Transparansi latar belakang */
-            z-index: 0; /* Di belakang konten lainnya */
-        }
-
-        .container {
-            position: relative; /* Memungkinkan konten di dalamnya terpisah dari latar belakang */
+        .welcome-message {
+            background: rgba(255, 20, 147, 0.8); /* Latar belakang semi-transparan pink */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Bayangan putih */
-            max-width: 300px; /* Lebar maksimum lebih kecil */
-            width: 90%; /* Lebar maksimal */
-            z-index: 1; /* Di atas latar belakang */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            text-align: center;
         }
-
-        h1 {
-            font-size: 2em; /* Ukuran judul */
-            margin-bottom: 20px;
-            color: #00ff00; /* Hijau untuk judul */
-        }
-
-        .menu-button {
-            position: absolute; /* Posisi absolut untuk mengatur letak tombol */
-            top: 20px; /* Jarak dari atas */
-            right: 20px; /* Jarak dari kanan */
-            padding: 10px;
-            background-color: rgba(255, 105, 180, 0.8); /* Warna pink transparan */
-            color: black; /* Warna teks tombol */
+        .menu-login {
+            position: absolute; /* Menempatkan tombol di pojok kanan atas */
+            top: 20px;
+            right: 20px;
+            background-color: white; /* Latar belakang tombol */
+            color: #ff69b4; /* Warna teks pink */
             border: none;
+            padding: 10px;
             border-radius: 5px;
-            font-size: 1.5em; /* Ukuran tombol lebih besar untuk menu */
             cursor: pointer;
-            transition: background 0.3s; /* Transisi saat hover */
+            font-size: 1em;
         }
-
-        .menu-button:hover {
-            background-color: rgba(255, 20, 147, 0.8); /* Warna pink saat hover */
-        }
-
-        /* Menu dropdown */
         .menu {
-            display: none; /* Tersembunyi secara default */
-            position: absolute;
-            top: 70px; /* Jarak dari atas tombol */
-            right: 20px; /* Jarak dari kanan */
-            background-color: rgba(0, 0, 0, 0.8); /* Latar belakang menu */
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Bayangan putih */
-            z-index: 2; /* Di atas latar belakang */
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(255, 20, 147, 0.5); /* Latar belakang semi-transparan */
         }
-
-        .menu-item {
-            padding: 10px 15px;
-            color: white; /* Warna teks item menu */
-            text-decoration: none; /* Hapus garis bawah */
-            display: block; /* Buat item menu menjadi blok */
-        }
-
-        .menu-item:hover {
-            background-color: rgba(255, 105, 180, 0.5); /* Warna saat hover */
-        }
-
-        /* Style untuk tampilan pada perangkat kecil */
-        @media (max-width: 768px) {
-            .container {
-                max-width: 90%; /* Lebar maksimal untuk perangkat kecil */
-            }
-            h1 {
-                font-size: 1.5em; /* Ukuran judul lebih kecil di perangkat kecil */
-            }
+        .menu a {
+            color: white; /* Warna tautan putih */
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="background"></div> <!-- Latar belakang -->
-
-    <div class="container">
-        <h1>Selamat Datang di MissAV</h1>
-        <p>Platform aman untuk konten dewasa.</p>
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Kontak</a>
+        <button class="menu-login" onclick="showLogin()">Login</button>
     </div>
 
-    <!-- Tombol Menu -->
-    <button class="menu-button" onclick="toggleMenu()">☰</button>
-    
-    <!-- Menu Dropdown -->
-    <div class="menu" id="menu">
-        <a href="login.html" class="menu-item">Login</a>
-        <a href="register.html" class="menu-item">Daftar</a>
-        <a href="about.html" class="menu-item">Tentang Kami</a>
-        <a href="contact.html" class="menu-item">Kontak</a>
-        <a href="services.html" class="menu-item">Layanan</a>
-        <a href="gallery.html" class="menu-item">Galeri</a>
-        <a href="privacy.html" class="menu-item">Kebijakan Privasi</a>
-        <a href="terms.html" class="menu-item">Syarat dan Ketentuan</a>
+    <div class="welcome-message">
+        <h1>Selamat Datang di MissAV</h1>
+        <p>Tempat terbaik untuk konten dewasa yang aman dan menyenangkan.</p>
     </div>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        function showLogin() {
+            alert("Tombol Login ditekan!"); // Ganti ini dengan logika untuk membuka form login
         }
     </script>
+
 </body>
 </html>
