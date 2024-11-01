@@ -3,52 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Situs 18+</title>
+    <title>MissAV - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- Font terminal -->
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif; /* Font untuk teks */
-            color: white; /* Warna teks putih */
+            font-family: 'Courier Prime', monospace; /* Font terminal */
+            background-image: url('https://drive.google.com/file/d/1dZp-7LK5uS31QioEK-CerogyK3w7WmC_/view?usp=drivesdk'); /* Ganti dengan URL gambar latar belakang desktop */
+            background-size: cover; /* Menutupi seluruh latar belakang */
+            background-position: center; /* Pusatkan gambar */
+            color: #ffffff; /* Warna teks putih */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('https://cdni.pornpics.com/1280/3/2/33518715/33518715_002_fa1b.jpg') no-repeat center center fixed; /* Ganti dengan URL gambar Anda */
-            background-size: cover; /* Memastikan gambar menutupi seluruh layar */
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.7); /* Transparansi hitam untuk kontainer */
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px; /* Lebar maksimum untuk desktop */
-            width: 90%; /* Lebar maksimum untuk mobile */
+            overflow: hidden; 
             text-align: center;
         }
-        h1 {
-            font-size: 2em; /* Ukuran font untuk judul */
-            margin-bottom: 20px; /* Jarak bawah judul */
-        }
-        p {
-            font-size: 1.2em; /* Ukuran font untuk paragraf */
-        }
-        /* Responsif untuk tampilan potret */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em; /* Ukuran font lebih kecil di mobile */
+
+        @media (max-width: 768px) { /* Untuk mode potret */
+            body {
+                background-image: url('https://drive.google.com/file/d/19jUrdhY58XQsN6qqAyo-dGcpYEyuCsj2/view?usp=drivesdk'); /* Ganti dengan URL gambar latar belakang potret */
             }
-            p {
-                font-size: 1em; /* Ukuran font lebih kecil di mobile */
-            }
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8); /* Latar belakang hitam transparan */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Bayangan putih */
+            max-width: 400px;
+            width: 90%; /* Lebar maksimal */
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #00ff00; /* Hijau untuk judul */
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #00ff00; /* Border hijau */
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1); /* Latar belakang input transparan */
+            color: #00ff00; /* Teks input hijau */
+            font-size: 1em;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #00ff00; /* Tombol hijau */
+            border: none;
+            border-radius: 5px;
+            color: #000; /* Teks tombol hitam */
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s; /* Transisi latar belakang */
+        }
+
+        button:hover {
+            background: #00cc00; /* Warna saat hover */
+        }
+
+        .toggle-form {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #00ff00; /* Tautan hijau */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Garis bawah saat hover */
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1> Situs 18+</h1>
-        <p>Konten ini hanya untuk orang dewasa.</p>
-        <!-- Tambahkan konten lain sesuai kebutuhan -->
+    <div class="container" id="loginContainer">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="loginDomain" placeholder="Domain" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Masuk</button>
+        </form>
+        <div class="toggle-form">
+            <p>Belum punya akun? <a href="#" id="show-register">Daftar sekarang</a></p>
+        </div>
     </div>
 
+    <div class="container" id="registerContainer" style="display:none;">
+        <h2>Registrasi</h2>
+        <form id="registrationForm">
+            <input type="text" id="registerDomain" placeholder="Domain" required>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <button type="submit">Daftar</button>
+        </form>
+        <div class="toggle-form">
+            <p>Sudah punya akun? <a href="#" id="show-login">Login sekarang</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('show-register').addEventListener('click', function() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('registerContainer').style.display = 'block';
+        });
+
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('registerContainer').style.display = 'none';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah refresh halaman
+            const domain = document.getElementById('loginDomain').value;
+            const password = document.getElementById('loginPassword').value;
+
+            console.log(`Login domain: ${domain}, Password: ${password}`);
+            alert("Login berhasil!"); // Ganti dengan logika yang sesuai
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah refresh halaman
+            const domain = document.getElementById('registerDomain').value;
+            const password = document.getElementById('registerPassword').value;
+
+            console.log(`Registrasi domain: ${domain}, Password: ${password}`);
+            alert("Registrasi berhasil! Silakan login."); // Ganti dengan logika yang sesuai
+            document.getElementById('registerContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
