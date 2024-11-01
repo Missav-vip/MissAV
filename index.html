@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MissAV - Login</title>
+    <title>MissAV - Beranda</title>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- Font terminal -->
     <style>
         body {
@@ -20,148 +20,75 @@
             position: relative; /* Untuk positioning tombol */
         }
 
-        .container {
-            background-image: url('https://drive.google.com/uc?id=1dZp-7LK5uS31QioEK-CerogyK3w7WmC_'); /* Ganti dengan URL gambar latar belakang login yang benar */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://drive.google.com/uc?id=1dZp-7LK5uS31QioEK-CerogyK3w7WmC_'); /* URL latar belakang untuk desktop */
             background-size: cover; /* Menutupi seluruh latar belakang */
             background-position: center; /* Pusatkan gambar */
+            opacity: 0.8; /* Transparansi latar belakang */
+            z-index: 0; /* Di belakang konten lainnya */
+        }
+
+        .container {
+            position: relative; /* Memungkinkan konten di dalamnya terpisah dari latar belakang */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Bayangan putih */
             max-width: 300px; /* Lebar maksimum lebih kecil */
             width: 90%; /* Lebar maksimal */
-            opacity: 0.9; /* Sedikit transparan untuk efek */
+            z-index: 1; /* Di atas latar belakang */
         }
 
-        h2 {
-            font-size: 1.5em; /* Ukuran judul lebih kecil */
-            margin-bottom: 15px;
+        h1 {
+            font-size: 2em; /* Ukuran judul */
+            margin-bottom: 20px;
             color: #00ff00; /* Hijau untuk judul */
         }
 
-        input {
-            width: calc(100% - 20px);
-            padding: 8px; /* Padding lebih kecil */
-            margin: 10px 0;
-            border: 2px solid #00ff00; /* Border hijau */
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1); /* Latar belakang input transparan */
-            color: #00ff00; /* Teks input hijau */
-            font-size: 0.9em; /* Ukuran teks lebih kecil */
-        }
-
-        button {
-            width: 100%;
-            padding: 8px; /* Padding lebih kecil */
-            background: rgba(0, 255, 0, 0.8); /* Tombol hijau transparan */
-            border: none;
-            border-radius: 5px;
-            color: #000; /* Teks tombol hitam */
-            font-size: 0.9em; /* Ukuran teks lebih kecil */
-            cursor: pointer;
-            transition: background 0.3s; /* Transisi latar belakang */
-        }
-
-        button:hover {
-            background: rgba(0, 204, 0, 0.8); /* Warna saat hover */
-        }
-
-        .toggle-form {
-            margin-top: 10px;
-            font-size: 0.8em; /* Ukuran teks lebih kecil */
-        }
-
-        a {
-            color: #00ff00; /* Tautan hijau */
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline; /* Garis bawah saat hover */
-        }
-
-        /* Styling untuk tombol menu login di pojok */
         .login-button {
-            position: absolute;
+            position: absolute; /* Posisi absolut untuk mengatur letak tombol */
             top: 20px; /* Jarak dari atas */
-            right: 20px; /* Jarak dari kanan */
+            left: 20px; /* Jarak dari kiri */
             padding: 10px 15px;
-            background-color: rgba(0, 255, 0, 0.8); /* Warna hijau */
+            background-color: rgba(0, 255, 0, 0.8); /* Hijau transparan */
+            color: black; /* Warna teks tombol */
             border: none;
             border-radius: 5px;
-            color: black;
             font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s; /* Transisi saat hover */
         }
 
         .login-button:hover {
-            background-color: rgba(0, 204, 0, 0.8); /* Warna saat hover */
+            background-color: rgba(0, 200, 0, 0.8); /* Warna saat hover */
+        }
+
+        /* Style untuk tampilan pada perangkat kecil */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%; /* Lebar maksimal untuk perangkat kecil */
+            }
+            h1 {
+                font-size: 1.5em; /* Ukuran judul lebih kecil di perangkat kecil */
+            }
         }
     </style>
 </head>
 <body>
 
-    <button class="login-button" id="openLogin">Login</button>
+    <div class="background"></div> <!-- Latar belakang -->
 
-    <div class="container" id="loginContainer">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="loginDomain" placeholder="Domain" required>
-            <input type="password" id="loginPassword" placeholder="Password" required>
-            <button type="submit">Masuk</button>
-        </form>
-        <div class="toggle-form">
-            <p>Belum punya akun? <a href="#" id="show-register">Daftar sekarang</a></p>
-        </div>
+    <div class="container">
+        <h1>Selamat Datang di MissAV</h1>
+        <p>Platform aman untuk konten dewasa.</p>
     </div>
 
-    <div class="container" id="registerContainer" style="display:none;">
-        <h2>Registrasi</h2>
-        <form id="registrationForm">
-            <input type="text" id="registerDomain" placeholder="Domain" required>
-            <input type="password" id="registerPassword" placeholder="Password" required>
-            <button type="submit">Daftar</button>
-        </form>
-        <div class="toggle-form">
-            <p>Sudah punya akun? <a href="#" id="show-login">Login sekarang</a></p>
-        </div>
-    </div>
+    <!-- Tombol Login Kecil -->
+    <button class="login-button" onclick="window.location.href='login.html';">Login</button>
 
-    <script>
-        document.getElementById('openLogin').addEventListener('click', function() {
-            document.getElementById('loginContainer').style.display = 'block';
-            document.getElementById('registerContainer').style.display = 'none';
-        });
-
-        document.getElementById('show-register').addEventListener('click', function() {
-            document.getElementById('loginContainer').style.display = 'none';
-            document.getElementById('registerContainer').style.display = 'block';
-        });
-
-        document.getElementById('show-login').addEventListener('click', function() {
-            document.getElementById('loginContainer').style.display = 'block';
-            document.getElementById('registerContainer').style.display = 'none';
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah refresh halaman
-            const domain = document.getElementById('loginDomain').value;
-            const password = document.getElementById('loginPassword').value;
-
-            console.log(`Login domain: ${domain}, Password: ${password}`);
-            alert("Login berhasil!"); // Ganti dengan logika yang sesuai
-        });
-
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah refresh halaman
-            const domain = document.getElementById('registerDomain').value;
-            const password = document.getElementById('registerPassword').value;
-
-            console.log(`Registrasi domain: ${domain}, Password: ${password}`);
-            alert("Registrasi berhasil! Silakan login."); // Ganti dengan logika yang sesuai
-            document.getElementById('registerContainer').style.display = 'none';
-            document.getElementById('loginContainer').style.display = 'block';
-        });
-    </script>
 </body>
 </html>
