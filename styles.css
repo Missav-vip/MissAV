@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #ff4081; /* Warna yang menarik perhatian */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+#ageVerification {
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #ff4081; /* Warna tombol */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e91e63; /* Warna saat hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #ff4081;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
